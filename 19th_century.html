@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19th Century Books - T_Emblemy Collectible Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #343a40;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+            color: white;
+        }
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .book-card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card img:hover {
+            transform: scale(1.1);
+        }
+        
+        .stars {
+            color: gray;
+        }
+
+        /* Ensuring responsiveness for smaller devices */
+        @media (max-width: 768px) {
+            .book-card img {
+                height: 250px; /* Adjust height for mobile screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="T_Emblemy Logo" style="height: 50px;">
+                <span class="ml-auto" style="font-size: 1.5rem; font-weight: bold;">T_Emblemy</span>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Browse Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="delivery.html">Delivery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">19th Century Books</h1>
+        <div class="row" id="books-container"></div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>&copy; 2025 T_Emblemy Collectible Books | Follow us on 
+            <a href="#" class="text-white">Facebook</a>, 
+            <a href="#" class="text-white">Twitter</a>, 
+            <a href="#" class="text-white">Instagram</a>.
+        </p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        const books = [
+            { title: "Dragon Ball", author: "Akira Toriyama", price: 12.99, genre: "19-century", rating: 5, image: "book13.jpg", wishlist: false },
+            { title: "Saint Seiya", author: "Masami Kurumada", price: 15.50, genre: "19-century", rating: 4, image: "book14.jpg", wishlist: false },
+            { title: "Murim Login", author: "Zeobic", price: 12.88, genre: "19-century", rating: 4, image: "book9.jpg", wishlist: false },
+            { title: "Soul land", author: "Tang Jia San Shao", price: 16.30, genre: "19-century", rating: 5, image: "book8.jpg", wishlist: false },
+            { title: "Memorize", author: "Ro Yu-jin", price: 7.99, genre: "19-century", rating: 5, image: "book2.jpg", wishlist: false },
+            { title: "Bleach", author: "Tite Kubo", price: 14.20, genre: "19-century", rating: 5, image: "book15.jpg", wishlist: false }
+        ];
+
+        const bookContainer = document.getElementById("books-container");
+
+        function renderBooks() {
+            bookContainer.innerHTML = "";
+            books.forEach((book, index) => {
+                const stars = "★".repeat(book.rating) + "☆".repeat(5 - book.rating);
+                bookContainer.innerHTML += `
+                    <div class="col-md-4 col-sm-6 text-center book-card">
+                        <img src="${book.image}" alt="${book.title}">
+                        <h5>${book.title}</h5>
+                        <p>Author: ${book.author}</p>
+                        <p>$${book.price.toFixed(2)}</p>
+                        <p class="stars">${stars}</p>
+                        <button class="btn btn-success">Buy Now</button>
+                        <button class="btn btn-secondary wishlist-btn" data-index="${index}">
+                            ${book.wishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+                        </button>
+                    </div>
+                `;
+            });
+            
+            document.querySelectorAll(".wishlist-btn").forEach(button => {
+                button.addEventListener("click", function() {
+                    const index = this.dataset.index;
+                    books[index].wishlist = !books[index].wishlist;
+                    renderBooks();
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", renderBooks);
+    </script>
+</body>
+</html>

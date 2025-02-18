@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="T_Emblemy Collectible Books - Rare and Classic Fiction">
+    <title>Home - T_Emblemy Collectible Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+            color: white;
+        }
+        .dropdown-menu {
+            background-color: #343a40;
+            color: white;
+        }
+        .dropdown-menu .dropdown-item {
+            color: white;
+        }
+        .dropdown-menu .dropdown-item:hover {
+            background-color: white;
+            color: black;
+        }
+        .banner {
+            background: url('background.jpg') center/cover no-repeat;
+            color: white;
+            text-shadow: 1px 1px 5px black;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .banner h1 {
+            font-size: 3rem;
+        }
+        .banner p {
+            font-size: 1.25rem;
+        }
+        .btn-custom {
+            background-color: #343a40;
+            color: white;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #495057;
+        }
+        footer a {
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .featured-books img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+        }
+
+        .featured-books img:hover {
+        transform: scale(1.1);
+        }
+
+        .featured-books .book-description {
+            height: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 767px) {
+            .banner h1 {
+                font-size: 2.5rem;
+            }
+            .banner p {
+                font-size: 1rem;
+            }
+            .featured-books img {
+                height: auto;
+                max-height: 300px;
+            }
+            .carousel-item {
+                text-align: center;
+            }
+            .carousel-inner .row {
+                justify-content: center;
+            }
+            .navbar {
+                font-size: 0.9rem;
+            }
+            footer {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container header-search d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="T_Emblemy Logo" class="logo" style="height: 50px; width: auto;">
+                <span class="ml-2" style="font-size: 1.5rem; font-weight: bold;">T_Emblemy</span>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" id="booksDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Books</a>
+                            <div class="dropdown-menu" aria-labelledby="booksDropdown">
+                                <a class="dropdown-item" href="books.html">All Books</a>
+                                <a class="dropdown-item" href="19th_century.html">19th Century Books</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-white" href="delivery.html">Delivery</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner text-center">
+        <div>
+            <h1>Discover Rare and Classic Books</h1>
+            <p>Your gateway to timeless literature. Shop now!</p>
+            <a href="books.html" class="btn btn-custom mt-3">Browse Collection</a>
+        </div>
+    </div>
+
+    <!-- YouTube Video Section -->
+    <div class="container my-5 text-center">
+        <h2>Book Reviews & Insights Video</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe id="video" aria-label="video iframe" title="url" class="embed-responsive-item YoutubeVideo" 
+                src="https://www.youtube.com/embed/ZNSA0NrDeb4" frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Featured Books Section -->
+    <main class="container my-5">
+        <section class="featured-books">
+            <h2 class="text-center mb-4">Featured Books</h2>
+            <div id="featuredBooksCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1: Books 1-3 -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="book1.jpg" alt="Featured Book 1" class="img-fluid rounded">
+                                <h4>Solo Leveling</h4>
+                                <p>Sung Jin-Woo, a weak E-rank Hunter, discovers a hidden dungeon and nearly dies. He gains a mysterious power that allows him to level up by completing quests and hunting monsters, transforming from the weakest Hunter into the strongest S-rank Hunter.</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book2.jpg" alt="Featured Book 2" class="img-fluid rounded">
+                                <h4>Memorize</h4>
+                                <p>Kim Su Hyun is abducted to Hall Plain after military service, where he spends 10 years reaching its peak. After enduring great hardship, he uses the Zero Code's power to turn back time and change his bitter past, despite warnings about repeating his torment.</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book3.jpg" alt="Featured Book 3" class="img-fluid rounded">
+                                <h4>The Second Coming of Gluttony</h4>
+                                <p>He was an addict, a loser, a despicable human being. But, one fleeting dream that may not have been a dream at all reawakens his once-lost senses. Possessing a very unique ability, he would use that, and the dream, to forge his path in the world now known as the Lost Paradise. Original Webtoon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Books 4-6 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="book4.jpg" alt="Featured Book 4" class="img-fluid rounded">
+                                <h4>Tomb Raider King</h4>
+                                <p>Mysterious tombs appeared all over the world one day, each containing a relic which grants its owner supernatural abilities. Jooheon Suh is a tomb explorer, excavator, and raider. Betrayed by his employer, he's about to die at the hands of a powerful new relic when he suddenly finds himself 15 years in the past, before any relics or tombs made their debut. Driven by feelings of revenge, how will Jooheon use his knowledge of the future to become the Tomb Raider King?.</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book5.jpg" alt="Featured Book 5" class="img-fluid rounded">
+                                <h4>The Ranker Who Live Twice</h4>
+                                <p>Yeonwoo’s brother disappeared years ago, and he’s devastated to learn of his death. As he copes with his loss, he’s given a pocket watch and learns there’s more to his brother’s death: he was betrayed while competing in the Tower of the Sun God. Now it’s Yeonwoo’s turn to use the knowledge his brother left behind. Can Yeonwoo (call sign: Cain) navigate that world and gain enough power and experience to reach the top of the tower, defeating his brother’s enemies and all those who stand in his way?</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book6.jpg" alt="Featured Book 6" class="img-fluid rounded">
+                                <h4>Murim Login</h4>
+                                <p>An era where hunters thrive on hunting monsters that come from Gates. Jin Tae-Kyung is a low-rank hunter who picks up a VR machine, and accidentally logs into the game, which is set in the world of Martial Arts. After many ups and downs, Tae-Kyung is able to escape this world. The strength and skills, which he received in the Murim were able to be carried over back to the real world. This allows him to continue making a living a hunter… but he decides to return back to the world of Murim, out of care for his NPC friends.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3: Books 7-9 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="book7.jpg" alt="Featured Book 7" class="img-fluid rounded">
+                                <h4>The Novel's Extra</h4>
+                                <p>Billions of characters exist inside the single world of a novel.However, no one aside from the heroines and 'important supporting characters' receives a name. “Chundong, what is your standing?” I don’t know. I don’t even know why my name is Chundong. This world is a novel I wrote.However, I ended up as a character I'd never even written about. Other than getting accepted into the Agent Military Academy, this character isn't particularly extraordinary, has no interactions with anyone in the novel, and isn’t even mentioned at all. Therefore, I became an extra in the novel....No. I became dust on the novel.</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book8.jpg" alt="Featured Book 8" class="img-fluid rounded">
+                                <h4>Soul Land</h4>
+                                <p>Tang Sect, the most famous martial arts sect of all. By stealing its most secret teachings to fulfill his dreams, Tang San committed an unforgivable crime. With his ambition attained, he hands his legacy to the sect and throws himself from the fearsome “Hell’s Peak”.  
+  
+                                    But he could have never imagined that this would reincarnate him in another world, one without magic, martial arts, and grudges. A land where only the mystical souls of battle lay.</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book9.jpg" alt="Featured Book 9" class="img-fluid rounded">
+                                <h4>Surviving The Game as a Barbarian</h4>
+                                <p>The protagonist, Lee Hansoo, finally reached the boss stage after nine years of playing the game "Dungeon and Stone", which no one had been able to clear until now. However, just as he entered the boss room, he saw a notification alerting him that he had cleared the tutorial and that he had possessed the body of the barbarian, Bjorn Jandel, who was a playable character in the game. In the world of "Dungeon and Stone", only one city remained standing after the destruction of the world. A labyrinth would open every month, offering explorers a chance to clear it for rewards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4: Books 10-12 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img src="book10.jpg" alt="Featured Book 10" class="img-fluid rounded">
+                                <h4>The Last Human</h4>
+                                <p>Zuo Tianchen is the last living human in a mutated zombie-infested city. Just when he was sure he'd died, he finds his soul returned to just before that ill-fated day ten years ago. He swears he'll protect the people important to him this time round and reunite with his past lover. Watch his struggles to survive equipped with his memory of the next ten years!</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book11.jpg" alt="Featured Book 11" class="img-fluid rounded">
+                                <h4>Absolute Sword Sense</h4>
+                                <p>After being given up on by his family because his dantian was destroyed, Soh Woonhwi was kidnapped by the Blood Cult and lived as a third-rate spy. One day, he died while being used to find a legendary sword immortal's secret records. However, he returned to the day he was kidnapped ten years ago and obtained a mysterious ability that allowed him to hear the voice of swords.</p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="book12.jpg" alt="Featured Book 12" class="img-fluid rounded">
+                                <h4>Martial Universe</h4>
+                                <p>On the Journey of Self-cultivation, One Requires Control of Ying and Yang , Good Fortune, To Reach for Nirvana, Mastery over Life and Death, Power over Reincarnation. At the peak of Martial Arts, break the Heavens and shake the Universe!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <a class="carousel-control-prev" href="#featuredBooksCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#featuredBooksCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>&copy; 2025 T_Emblemy Collectible Books | Follow us on 
+            <a href="#" class="text-white">Facebook</a>, 
+            <a href="#" class="text-white">Twitter</a>, 
+            <a href="#" class="text-white">Instagram</a>.
+        </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - T_Emblemy Collectible Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+        }
+
+        header {
+            background-color: #343a40;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+            color:white
+        }
+
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card img:hover {
+            transform: scale(1.1);
+        }
+        .book-card h5 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .book-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        #no-results {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            color: Black;
+        }
+
+        .stars {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="T_Emblemy Logo" style="height: 50px;">
+                <span class="ml-auto" style="font-size: 1.5rem; font-weight: bold;">T_Emblemy</span>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Browse Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="delivery.html">Delivery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Our Books</h1>
+
+        <!-- Search and Filters -->
+        <div class="mb-4">
+            <input type="text" id="search-bar" class="form-control mb-3" placeholder="Search by title or author">
+            <div class="filters d-flex justify-content-between">
+                <div>
+                    <label for="genre">Genre:</label>
+                    <select id="genre" class="form-control d-inline-block">
+                        <option value="all" selected>All</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="action">Action</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="19-century">Historical</option>
+                        <option value="wishlist">Wishlist</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sort">Sort by:</label>
+                    <select id="sort" class="form-control d-inline-block">
+                        <option value="newest" selected>Newest First</option>
+                        <option value="low-to-high">Price: Low to High</option>
+                        <option value="high-to-low">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <p id="no-results">No results found.</p>
+
+        <!-- Book Grid -->
+        <div class="row" id="books-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>&copy; 2025 T_Emblemy Collectible Books | Follow us on 
+            <a href="#" class="text-white">Facebook</a>, 
+            <a href="#" class="text-white">Twitter</a>, 
+            <a href="#" class="text-white">Instagram</a>.
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const books = [
+            { title: "Solo Leveling", author: "Chugong", price: 4.59, genre: "action", rating: 4, image: "book1.jpg", wishlist: false },
+            { title: "Memorize", author: "Ro Yu-jin", price: 7.99, genre: "19-century", rating: 5, image: "book2.jpg", wishlist: false },
+            { title: "Second Coming of Gluttony", author: "Ro Yu-jin", price: 4.99, genre: "fantasy", rating: 3, image: "book3.jpg", wishlist: false },
+            { title: "Tomb Raider King", author: "Sanji Jiksong", price: 14.18, genre: "fiction", rating: 4, image: "book4.jpg", wishlist: false },
+            { title: "The Ranker Who Lives Twice", author: "Sadoyeon", price: 8.38, genre: "fantasy", rating: 5, image: "book5.jpg", wishlist: false },
+            { title: "Murim Login", author: "Zeobic", price: 12.88, genre: "19-century", rating: 3, image: "book6.jpg", wishlist: false },
+            { title: "The Noval's Extra", author: "Jee Gab Song", price: 5.99, genre: "fiction", rating: 4, image: "book7.jpg", wishlist: false },
+            { title: "Soul land", author: "Tang Jia San Shao", price: 16.30, genre: "19-century", rating: 5, image: "book8.jpg", wishlist: false },
+            { title: "Surviving The Game As A Barbarian", author: "Jung Yoon-Kang", price: 12.88, genre: "fiction", rating: 4, image: "book9.jpg", wishlist: false },
+            { title: "The Last Human", author: "Zuo Tian Cheng", price: 5.97, genre: "fiction", rating: 3, image: "book10.jpg", wishlist: false },
+            { title: "Absolute Sword Sense", author: "Hanjung Wolya", price: 12.75, genre: "action", rating: 4, image: "book11.jpg", wishlist: false },
+            { title: "Martial Universe", author: "Zhang Li", price: 16.35, genre: "action", rating: 5, image: "book12.jpg", wishlist: false },
+            { title: "Dragon Ball", author: "Akira Toriyama", price: 12.99, genre: "19-century", rating: 5, image: "book13.jpg", wishlist: false },
+            { title: "Saint Seiya", author: "Masami Kurumada", price: 15.50, genre: "19-century", rating: 4, image: "book14.jpg", wishlist: false },
+            { title: "Bleach", author: "Tite Kubo", price: 14.20, genre: "19-century", rating: 5, image: "book15.jpg", wishlist: false }
+        ];
+
+        const bookContainer = document.getElementById("books-container");
+        const searchBar = document.getElementById("search-bar");
+        const genreFilter = document.getElementById("genre");
+        const sortFilter = document.getElementById("sort");
+        const noResultsMessage = document.getElementById("no-results");
+
+        function renderBooks() {
+            let filteredBooks = books.filter(book =>
+                (genreFilter.value === "wishlist" ? book.wishlist : genreFilter.value === "all" || book.genre === genreFilter.value) &&
+                (book.title.toLowerCase().includes(searchBar.value.toLowerCase()) || book.author.toLowerCase().includes(searchBar.value.toLowerCase()))
+            );
+
+            filteredBooks.sort((a, b) => sortFilter.value === "low-to-high" ? a.price - b.price : sortFilter.value === "high-to-low" ? b.price - a.price : 0);
+
+            bookContainer.innerHTML = "";
+            if (filteredBooks.length === 0) {
+                noResultsMessage.style.display = "block";
+            } else {
+                noResultsMessage.style.display = "none";
+                filteredBooks.forEach((book, index) => {
+                    const stars = "★".repeat(book.rating) + "☆".repeat(5 - book.rating);
+                    bookContainer.innerHTML += `
+                        <div class="col-md-4 col-sm-6 col-12 text-center book-card">
+                            <img src="${book.image}" alt="${book.title}">
+                            <h5>${book.title}</h5>
+                            <p>Author: ${book.author}</p>
+                            <p>$${book.price.toFixed(2)}</p>
+                            <p class="stars">${stars}</p>
+                            <button class="btn btn-success">Buy Now</button>
+                            <button class="btn btn-secondary wishlist-btn" data-index="${index}">
+                                ${book.wishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+                            </button>
+                        </div>
+                    `;
+                });
+
+                document.querySelectorAll(".wishlist-btn").forEach(button => {
+                    button.addEventListener("click", function () {
+                        const index = this.dataset.index;
+                        books[index].wishlist = !books[index].wishlist;
+                        renderBooks();
+                    });
+                });
+            }
+        }
+
+        searchBar.addEventListener("input", renderBooks);
+        genreFilter.addEventListener("change", renderBooks);
+        sortFilter.addEventListener("change", renderBooks);
+        document.addEventListener("DOMContentLoaded", renderBooks);
+    </script>
+</body>
+</html>

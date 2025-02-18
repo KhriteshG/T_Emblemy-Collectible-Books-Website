@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery - T_Emblemy Collectible Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #343a40;
+            color: white;
+        }
+
+        header img {
+            max-height: 50px;
+        }
+
+        header nav a {
+            color: white;
+            margin-left: 15px;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        /* Delivery Info Table */
+        .delivery-info {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        /* FAQ Section */
+        .accordion .card {
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .accordion .card-header {
+            background-color: #495057;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .accordion .btn {
+            color: white;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .accordion .btn:hover {
+            color: #f8f9fa;
+        }
+
+        .accordion .btn:focus {
+            box-shadow: none;
+        }
+
+        .accordion .collapse {
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        /* Customer Reviews */
+        .customer-review {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgb(255, 255, 255);
+        }
+
+        .customer-review blockquote {
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+
+        footer a {
+            text-decoration: none;
+            color:white;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .table-responsive {
+                overflow-x: auto;
+            }
+
+            header nav {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="T_Emblemy Logo" style="height: 50px;">
+                <span class="ml-auto" style="font-size: 1.5rem; font-weight: bold;">T_Emblemy</span>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="books.html">Browse Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="delivery.html">Delivery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Delivery Information -->
+    <main class="container my-5">
+        <section class="text-center">
+            <h1>Delivery Information</h1>
+            <p class="text-muted">We deliver worldwide with reliable shipping options and affordable rates.</p>
+        </section>
+        <section class="delivery-info">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Estimated Delivery Time</th>
+                            <th>Shipping Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>United States/Canada</td>
+                            <td>2-3 Business Days</td>
+                            <td>$5</td>
+                        </tr>
+                        <tr>
+                            <td>UK</td>
+                            <td>4-6 Business Days</td>
+                            <td>$10</td>
+                        </tr>
+                        <tr>
+                            <td>Europe</td>
+                            <td>5-9 Business Days</td>
+                            <td>$12</td>
+                        </tr>
+                        <tr>
+                            <td>Rest of the world</td>
+                            <td>10-15 Business Days</td>
+                            <td>$15</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="card">
+                    <div class="card-header" id="faq1">
+                        <h5>
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                What are your shipping methods?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse1" class="collapse show" aria-labelledby="faq1" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            We use trusted courier services like DHL, FedEx, and Royal Mail for efficient delivery.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="faq2">
+                        <h5>
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                Can I track my order?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse2" class="collapse" aria-labelledby="faq2" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Yes, you will receive a tracking number via email once your order is shipped.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="faq3">
+                        <h5>
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                What should I do if my order is delayed?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapse3" class="collapse" aria-labelledby="faq3" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            If your order is delayed, please contact our support team at support@temblemy.com with your order number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section>
+            <h2 class="text-center mb-4">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="customer-review text-center">
+                        <blockquote>"Fast delivery and great packaging!"</blockquote>
+                        <footer class=>Alice</footer>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="customer-review text-center">
+                        <blockquote>"The books arrived in perfect condition."</blockquote>
+                        <footer class=>John</footer>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="customer-review text-center">
+                        <blockquote>"Impressed with the on time shipping."</blockquote>
+                        <footer class=>Sarah</footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-3 text-center">
+        <p>&copy; 2025 T_Emblemy Collectible Books | Follow us on 
+            <a href="#">Facebook</a>, 
+            <a href="#">Twitter</a>, 
+            <a href="#">Instagram</a>.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
